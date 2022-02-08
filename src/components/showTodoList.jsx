@@ -1,8 +1,9 @@
-import { useState, useEffect } from 'react'
-import axios from 'axios'
+import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import axios from "axios";
 
 function TodoCard({ data }) {
-  const { _id, title } = data
+  const { _id, title } = data;
   return (
     <li key={_id}>
       <div className="title-description">
@@ -14,34 +15,37 @@ function TodoCard({ data }) {
         <button className="button">delete</button>
       </div>
     </li>
-  )
+  );
 }
 
 export function ShowTodoList() {
-  const [todo, setTodo] = useState([])
+  const [todo, setTodo] = useState([]);
 
   useEffect(() => {
     axios
-      .get('http://localhost:8000/api/task')
-      .then(res => {
-        console.log(res.data)
-        setTodo(res.data)
+      .get("http://localhost:8000/api/task")
+      .then((res) => {
+        console.log(res.data);
+        setTodo(res.data);
       })
-      .catch(err => {
-        console.log(err)
-      })
-  }, [])
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
 
   return (
     <section className="container">
+      <Link to="/create-todo" className="button-new">
+        <button className="button">New</button>
+      </Link>
       <section className="contents">
         <h1>TASK</h1>
         <ul className="list-container">
-          {todo.map(data => (
+          {todo.map((data) => (
             <TodoCard data={data} key={data._id} />
           ))}
         </ul>
       </section>
     </section>
-  )
+  );
 }
