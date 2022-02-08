@@ -1,10 +1,12 @@
 import './App.css'
+import { ShowTodoList } from './components/showTodoList'
 import InputField from './poc/InputField'
 
 function App() {
   return (
-    <div className="App">
+    <div className="app-contents">
       <InputField />
+      <ShowTodoList />
     </div>
   )
 }
