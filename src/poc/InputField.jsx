@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component } from 'react'
 
 function InputField() {
   return (
@@ -19,7 +19,7 @@ function InputField() {
         <option value="Jakob">Jakob</option>
       </select>
     </form>
-  );
+  )
 }
 
-export default InputField;
+export default InputField

@@ -5,7 +5,7 @@ export function UpdateTodo({ _id, handleClose, handleEdited }) {
   const [data, setData] = useState({ title: '' })
 
   function handleChange(e) {
-    setData(data => ({ ...data, [e.target.name]: e.target.value }))
+    setData((data) => ({ ...data, [e.target.name]: e.target.value }))
   }
 
   function handleSubmit(e) {
@@ -15,11 +15,11 @@ export function UpdateTodo({ _id, handleClose, handleEdited }) {
 
     axios
       .put(`http://localhost:8000/api/todo/${_id}`, data)
-      .then(res => {
+      .then((res) => {
         setData({ title: '' })
         console.log(res.data.message)
       })
-      .catch(err => {
+      .catch((err) => {
         console.log('Failed to update todo')
         console.log(err.message)
       })
@@ -28,7 +28,7 @@ export function UpdateTodo({ _id, handleClose, handleEdited }) {
   return (
     <form
       className="form-container"
-      onSubmit={e => {
+      onSubmit={(e) => {
         handleSubmit(e)
         handleEdited()
         handleClose()

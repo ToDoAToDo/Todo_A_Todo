@@ -34,11 +34,11 @@ export function ShowTodoList() {
   useEffect(() => {
     axios
       .get('http://localhost:8000/api/task')
-      .then(res => {
+      .then((res) => {
         console.log(res.data)
         setTodo(res.data)
       })
-      .catch(err => {
+      .catch((err) => {
         console.log(err)
       })
   }, [])
@@ -51,7 +51,7 @@ export function ShowTodoList() {
       <section className="contents">
         <h1>TASK</h1>
         <ul className="list-container">
-          {todo.map(data => (
+          {todo.map((data) => (
             <TodoCard data={data} key={data._id} />
           ))}
         </ul>

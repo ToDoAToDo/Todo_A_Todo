@@ -1,8 +1,8 @@
-import "./App.css";
-import { BrowserRouter, Route } from "react-router-dom";
-import { CreateTodo } from "./components/createTodo";
-import { ShowTodoList } from "./components/showTodoList";
-import InputField from "./poc/InputField";
+import './App.css'
+import { BrowserRouter, Route } from 'react-router-dom'
+import { CreateTodo } from './components/createTodo'
+import { ShowTodoList } from './components/showTodoList'
+import InputField from './poc/InputField'
 
 function App() {
   return (
@@ -12,7 +12,7 @@ function App() {
         <Route path="/create-todo" component={CreateTodo} />
       </BrowserRouter>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
