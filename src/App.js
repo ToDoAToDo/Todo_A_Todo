@@ -2,7 +2,6 @@ import './App.css'
 import { BrowserRouter, Route } from 'react-router-dom'
 import { CreateTodo } from './components/createTodo'
 import { ShowTodoList } from './components/showTodoList'
-import InputField from './poc/InputField'
 import { UserList } from './components/user/user'
 
 function App() {
