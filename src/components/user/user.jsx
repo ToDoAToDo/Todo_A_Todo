@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
+import { Link } from 'react-router-dom'
 
 function User({ data }) {
   const { _id, name } = data
@@ -25,6 +26,9 @@ export function UserList() {
 
   return (
     <>
+      <Link to="/user/new">
+        <button>Create new</button>
+      </Link>
       <h1>user</h1>
       <ul>
         {users.map(user => (
