@@ -12,9 +12,26 @@ import {
 } from 'react-bootstrap'
 
 function TodoCard({ data }) {
-  const { _id, title, status } = data
+  const { _id, title, completed } = data
+
+  const [isCompleted, setIsCompleted] = useState(completed)
+
+  function handleClick() {
+    let newStatus = data //The data object to change status of
+    newStatus.completed = !newStatus.completed //Sets the value of the status to the opposite of previous value
+    axios
+      .put(`http://localhost:8000/api/task/${_id}`, newStatus)
+      .then(res => {
+        setIsCompleted(!completed)
+      })
+      .catch(err => {
+        console.log('Failed to update todo')
+        console.log(err.message)
+      })
+  }
 
   return (
+
     <ListGroupItem key={_id}>
       <Row>
         <Col className="col-3">Insert Name</Col>
@@ -23,7 +40,7 @@ function TodoCard({ data }) {
           <Button
             className={`${
               status === 'Unfinished' ? 'btn-success' : 'btn-danger'
-            }`}
+            }` onClick={() => handleClick()}}
           >
             {status === 'Unfinished' ? 'Finished' : 'Unfinished'}
           </Button>
@@ -44,6 +61,7 @@ function TodoCard({ data }) {
         </Col>
       </Row>
     </ListGroupItem>
+
   )
 }
 
@@ -54,7 +72,6 @@ export function ShowTodoList() {
     axios
       .get('http://localhost:8000/api/task')
       .then(res => {
-        console.log(res.data)
         setTodo(res.data)
       })
       .catch(err => {
