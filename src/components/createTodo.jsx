@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import axios from 'axios'
+import { Button } from 'react-bootstrap'
 
 export function CreateTodo() {
   const [data, setData] = useState({ title: '' })
@@ -41,9 +42,9 @@ export function CreateTodo() {
             onChange={handleChange}
             className="input me-2"
           />
-          <button type="submit" className="button">
+          <Button type="submit" className="button btn-secondary">
             create todo
-          </button>
+          </Button>
         </form>
       </section>
     </section>
