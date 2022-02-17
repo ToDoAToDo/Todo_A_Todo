@@ -31,7 +31,7 @@ export function CreateTodo() {
     <section className="container">
       <section className="contents">
         <form onSubmit={handleSubmit} className="form-container" noValidate>
-          <label className="label" htmlFor="title">
+          <label className="label me-2" htmlFor="title">
             Title
           </label>
           <input
@@ -39,7 +39,7 @@ export function CreateTodo() {
             name="title"
             value={data.title}
             onChange={handleChange}
-            className="input"
+            className="input me-2"
           />
           <button type="submit" className="button">
             create todo

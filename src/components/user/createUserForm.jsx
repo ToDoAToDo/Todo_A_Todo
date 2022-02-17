@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
+import { Button, Col, Container, Row } from 'react-bootstrap'
 
 export function CreateUserForm() {
   const [name, setName] = useState('')
@@ -26,14 +27,39 @@ export function CreateUserForm() {
 
   return (
     <>
-      <form onSubmit={handleSubmit} noValidate>
-        <label htmlFor="name">Name</label>
-        <input type="text" name="name" onChange={handleChange} />
-        <button type="submit">Create user</button>
-      </form>
-      <Link to="/user">
-        <button>Back</button>
-      </Link>
+      <Container>
+        <Row>
+          <Col className="col-3">
+            <form id="create-user" onSubmit={handleSubmit} noValidate>
+              <label htmlFor="name" className="me-2">
+                Name
+              </label>
+              <input type="text" name="name" onChange={handleChange} />
+            </form>
+          </Col>
+
+          <Row className="mt-2">
+            <Col className="col-5">
+              <Row>
+                <Col className="col-3">
+                  <Button
+                    form="create-user"
+                    type="submit"
+                    className="btn-secondary"
+                  >
+                    Create user
+                  </Button>
+                </Col>
+                <Col className="col-1">
+                  <Link to="/user">
+                    <Button className="btn-secondary">Back</Button>
+                  </Link>
+                </Col>
+              </Row>
+            </Col>
+          </Row>
+        </Row>
+      </Container>
     </>
   )
 }

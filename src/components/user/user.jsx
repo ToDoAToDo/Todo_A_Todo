@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
+import { Container } from 'react-bootstrap'
 
 function User({ data }) {
   const { _id, name } = data
@@ -26,12 +27,14 @@ export function UserList() {
 
   return (
     <>
-      <h1>user</h1>
-      <ul>
-        {users.map(user => (
-          <User data={user} key={user._id} />
-        ))}
-      </ul>
+      <Container>
+        <h1>user</h1>
+        <ul>
+          {users.map(user => (
+            <User data={user} key={user._id} />
+          ))}
+        </ul>
+      </Container>
     </>
   )
 }
