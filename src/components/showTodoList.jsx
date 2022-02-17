@@ -1,6 +1,15 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
+import {
+  Button,
+  Card,
+  Col,
+  Container,
+  ListGroup,
+  ListGroupItem,
+  Row,
+} from 'react-bootstrap'
 
 function TodoCard({ data }) {
   const { _id, title, completed } = data
@@ -22,22 +31,37 @@ function TodoCard({ data }) {
   }
 
   return (
-    <li key={_id}>
-      <div className="title-description">
-        <h3>{title}</h3>
-        <h5 style={completed === false ? { color: 'red' } : { color: 'green' }}>
-          {completed ? 'Finished' : 'Unfinished'}
-        </h5>
-      </div>
 
-      <div className="button-container">
-        <button name={_id} className="button">
-          edit
-        </button>
-        <button className="button">delete</button>
-        <button onClick={() => handleClick()}>finish</button>
-      </div>
-    </li>
+    <ListGroupItem key={_id}>
+      <Row>
+        <Col className="col-3">Insert Name</Col>
+
+        <Col className="col-3">
+          <Button
+            className={`${
+              status === 'Unfinished' ? 'btn-success' : 'btn-danger'
+            }` onClick={() => handleClick()}}
+          >
+            {status === 'Unfinished' ? 'Finished' : 'Unfinished'}
+          </Button>
+        </Col>
+        <Col className="col-2">{title}</Col>
+        <Col className="col-4">
+          <Row>
+            <Col className="col-4">
+              <Button name={_id} className="btn-info">
+                Edit
+              </Button>
+            </Col>
+
+            <Col className="col-6">
+              <Button className="btn-info">Delete</Button>
+            </Col>
+          </Row>
+        </Col>
+      </Row>
+    </ListGroupItem>
+
   )
 }
 
@@ -57,16 +81,28 @@ export function ShowTodoList() {
 
   return (
     <section className="container">
-      <Link to="/create-todo" className="button-new">
-        <button className="button">New</button>
-      </Link>
       <section className="contents">
-        <h1>TASK</h1>
-        <ul className="list-container">
-          {todo.map(data => (
-            <TodoCard data={data} key={data._id} />
-          ))}
-        </ul>
+        <h1>TASKS</h1>
+        <Container>
+          <Row className="rows-cols-2">
+            <Col className="col-6">
+              <Card>
+                <Card.Header>
+                  <Row>
+                    <Col className="col-3">Responsible</Col>
+                    <Col className="col-3">Status</Col>
+                    <Col className="col-6">Task</Col>
+                  </Row>
+                </Card.Header>
+                <ListGroup>
+                  {todo.map(data => (
+                    <TodoCard data={data} key={data._id} />
+                  ))}
+                </ListGroup>
+              </Card>
+            </Col>
+          </Row>
+        </Container>
       </section>
     </section>
   )
