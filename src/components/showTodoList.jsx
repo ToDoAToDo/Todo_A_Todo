@@ -37,12 +37,10 @@ function TodoCard({ data }) {
 
         <Col className="col-3">
           <Button
-            className={`${
-              status === 'Unfinished' ? 'btn-success' : 'btn-danger'
-            }`}
+            className={`${completed ? 'btn-success' : 'btn-danger'}`}
             onClick={() => handleClick()}
           >
-            {status === 'Unfinished' ? 'Finished' : 'Unfinished'}
+            {completed ? 'Finished' : 'Unfinished'}
           </Button>
         </Col>
         <Col className="col-2">{title}</Col>
