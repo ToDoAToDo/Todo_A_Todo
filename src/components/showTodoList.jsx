@@ -31,7 +31,6 @@ function TodoCard({ data }) {
   }
 
   return (
-
     <ListGroupItem key={_id}>
       <Row>
         <Col className="col-3">Insert Name</Col>
@@ -40,7 +39,8 @@ function TodoCard({ data }) {
           <Button
             className={`${
               status === 'Unfinished' ? 'btn-success' : 'btn-danger'
-            }` onClick={() => handleClick()}}
+            }`}
+            onClick={() => handleClick()}
           >
             {status === 'Unfinished' ? 'Finished' : 'Unfinished'}
           </Button>
@@ -61,7 +61,6 @@ function TodoCard({ data }) {
         </Col>
       </Row>
     </ListGroupItem>
-
   )
 }
 
