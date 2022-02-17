@@ -26,8 +26,7 @@ class carddesign extends React.Component {
                   <Row>
                     <Col className="col-3">Responsible</Col>
                     <Col className="col-3">Status</Col>
-                    <Col className="col-2">Task</Col>
-                    <Col className="col-4"></Col>
+                    <Col className="col-6">Task</Col>
                   </Row>
                 </Card.Header>
                 <ListGroup>

@@ -20,7 +20,6 @@ function App() {
         <Route exact path="/user" component={UserList} />
         <Route exact path="/user/new" component={CreateUserForm} />
       </BrowserRouter>
-      {cardDesign.getCardDesign('Glenn', 'Dishes')}
     </div>
   )
 }

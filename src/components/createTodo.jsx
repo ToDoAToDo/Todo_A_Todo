@@ -1,12 +1,11 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
 import axios from 'axios'
 
 export function CreateTodo() {
   const [data, setData] = useState({ title: '' })
 
   function handleChange(e) {
-    setData((data) => ({ ...data, [e.target.name]: e.target.value }))
+    setData(data => ({ ...data, [e.target.name]: e.target.value }))
   }
 
   function handleSubmit(e) {
@@ -18,11 +17,11 @@ export function CreateTodo() {
 
     axios
       .post('http://localhost:8000/api/task', data)
-      .then((res) => {
+      .then(res => {
         setData({ title: '' })
         console.log(res.data.message)
       })
-      .catch((err) => {
+      .catch(err => {
         console.log("Error, couldn't create todo")
         console.log(err.message)
       })
@@ -30,11 +29,6 @@ export function CreateTodo() {
 
   return (
     <section className="container">
-      <Link to="/" className="button-back">
-        <button type="button" className="button">
-          back
-        </button>
-      </Link>
       <section className="contents">
         <form onSubmit={handleSubmit} className="form-container" noValidate>
           <label className="label" htmlFor="title">

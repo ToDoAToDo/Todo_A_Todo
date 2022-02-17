@@ -7,7 +7,7 @@ function User({ data }) {
 
   return (
     <>
-      <p>{`${name} and ${_id}`}</p>
+      <p>{`${name}`}</p>
     </>
   )
 }
@@ -26,9 +26,6 @@ export function UserList() {
 
   return (
     <>
-      <Link to="/user/new">
-        <button>Create new</button>
-      </Link>
       <h1>user</h1>
       <ul>
         {users.map(user => (
